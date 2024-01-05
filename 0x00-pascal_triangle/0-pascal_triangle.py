@@ -1,23 +1,29 @@
 #!/usr/bin/python3
-"""Making pascal's triangle"""
+"""making pascal's triangle"""
+
 
 def pascal_triangle(n):
     """
-    a function that dispalys a list of
-    integer that represent triangle
+    a function that returns a list
+    of integers that represents pascal's triangle
     """
     if n <= 0:
         return []
 
     triangle = []
+
     for i in range(n):
-        row = [i]
-        if triangle:
-            prev = triangle[-1]
-            row.extend([prev[j] + prev[j + 1] for j in
-                range(len(prev) - 1)])
+        if (i == 0):
+            triangle.append([1])
+        else:
+            current = []
+            for j in range(i + 1):
+                if (j == 0 or j == i):
+                    current.append(1)
+                else:
+                    current.append(triangle[i - 1][j - 1] +
+                                   triangle[i - 1][j])
 
-        row.append(1)
-        trinagle.append(row)
+            triangle.append(current)
 
-    return (triangle)
+    return triangle
