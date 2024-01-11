@@ -5,12 +5,17 @@ or not.
 
 
 def canUnlockAll(boxes):
-    unlocked = set([0])
-    keys = [0]
-    while keys:
-        current_keys = boxes[keys.pop()]
-        for key in current_keys:
-            if key not in unlocked and key < len(boxes):
-                unlocked.add(key)
-                keys.append(key)
-    return len(unlocked) == len(boxed)
+    """Determines if boxes can be unlocked"""
+    position = 0
+    unlocked = {}
+
+    for box in boxes:
+        if len(box) == 0 or position == 0:
+            unlocked[position] = "always_unlocked"
+        for key in box:
+            if key < len(boxes) and key != position:
+                unlocked[key] = key
+        if len(unlocked) == len(boxes):
+            return True
+        position += 1
+    return False
