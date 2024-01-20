@@ -1,23 +1,18 @@
 #!/usr/bin/python3
 """In a text file, there is a single character H.
  Your text editor can execute only two operations
- in this file: Copy All and Paste. Given a number
-n, write a method that calculates the fewest number
-of operations needed to result in exactly n H
-characters in the file."""
+ in this file: Copy All and Paste."""
 
 
-def minOperations(n: int) -> :
-    """
-    calculates the fewest number of operations
+def minOperations(n: int) -> int:
+    """calculates the fewest number of operations
     needed to result in exactly n H characters
-    in the file
-    """
+    in the file"""
     process = 2
-    operation = 0
+    op = 0
     while n > 1:
         while n % process == 0:
-            operation += process
+            op += process
             n /= process
         process += 1
-    return operation
+    return op
