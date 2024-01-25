@@ -18,14 +18,14 @@ def log_parser(log):
 
 def validate_format(log):
     """
-    Validates log format
+    Validating the format
     """
     return False if len(log.split()) < 7 else True
 
 
 def validate_status_code(status_code):
     """
-    Check if status code entry is valid
+    Checking the status of code entry
     """
     valid_status_codes = ["200", "301", "400", "401",
                           "403", "404", "405", "500"]
@@ -34,7 +34,7 @@ def validate_status_code(status_code):
 
 def print_log(file_size, status_codes) -> None:
     """
-    Prints out log files
+    displaying the log files
     """
     sorted_status_codes = sorted(status_codes.items(), key=itemgetter(0))
     print('File size: {}'.format(file_size))
@@ -46,7 +46,7 @@ def print_log(file_size, status_codes) -> None:
 
 def main():
     """
-    Reads logs from std in and prints out statistic
+    Reading the logs from std in and display the statistic
     on status code and file size
     """
     status_codes_count = {}
